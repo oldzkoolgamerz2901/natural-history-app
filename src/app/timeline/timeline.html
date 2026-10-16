@@ -1,0 +1,86 @@
+<section class="timeline" aria-labelledby="timeline-title" aria-describedby="timeline-help">
+  <div class="timeline-heading">
+    <div>
+      <p class="eyebrow">01 / ORIENT YOURSELF</p>
+      <h2 id="timeline-title" tabindex="-1">The shape of deep time</h2>
+    </div>
+    <span class="timeline-key"
+      ><span class="key-marker" aria-hidden="true">01</span> Major mass extinction</span
+    >
+  </div>
+  <p id="timeline-help">
+    Older on the left. Present on the right. Width represents duration. Choose a period below or a
+    numbered extinction marker.
+  </p>
+
+  <div class="plot">
+    <div class="era-bands" aria-hidden="true">
+      @for (era of eras; track era.id) {
+        <div [style.width.%]="width(era.start.age, era.end.age)" [style.--era-color]="era.color">
+          <span>{{ era.name }}</span>
+        </div>
+      }
+    </div>
+    <div class="period-bands" aria-label="Periods on a proportional timeline">
+      @for (period of periods; track period.id) {
+        <a
+          [routerLink]="['/period', period.id]"
+          routerLinkActive="selected"
+          ariaCurrentWhenActive="page"
+          [style.width.%]="width(period.start.age, period.end.age)"
+          [style.background]="period.color"
+          [attr.aria-label]="
+            period.shortName + ' ' + period.name + ', ' + range(period.start.age, period.end.age)
+          "
+          [title]="period.name + ' · ' + range(period.start.age, period.end.age)"
+          [attr.data-period]="period.id"
+        >
+          <span aria-hidden="true" [class.narrow]="width(period.start.age, period.end.age) < 5">{{
+            period.shortName
+          }}</span>
+        </a>
+      }
+    </div>
+    <div class="axis" aria-hidden="true">
+      <span class="axis-start">{{ oldest }}</span>
+      @for (tick of ticks; track tick) {
+        <span [style.left.%]="position(tick)">{{ tick }}</span>
+      }
+      <span class="axis-end">0 Ma</span>
+    </div>
+    <div class="event-pins" aria-label="Extinction markers">
+      @for (event of extinctions; track event.id; let i = $index) {
+        @if (event.oldest !== event.youngest) {
+          <span
+            class="event-range"
+            aria-hidden="true"
+            [class.lower]="i % 2 === 1"
+            [style.left.%]="position(event.oldest)"
+            [style.width.%]="width(event.oldest, event.youngest)"
+          ></span>
+        }
+        <a
+          [routerLink]="['/extinction', event.id]"
+          routerLinkActive="selected"
+          ariaCurrentWhenActive="page"
+          class="event-pin"
+          [class.lower]="i % 2 === 1"
+          [style.left.%]="position((event.oldest + event.youngest) / 2)"
+          [attr.aria-label]="
+            event.number + ' ' + event.name + ' mass extinction. ' + event.timingNote
+          "
+          [title]="event.name + ': ' + event.timingNote"
+        >
+          <span aria-hidden="true">{{ event.number }}</span>
+        </a>
+      }
+    </div>
+  </div>
+  <div class="timeline-footnote">
+    <span>← OLDER <span aria-hidden="true">/</span> YOUNGER →</span
+    ><span
+      >Marker positions are approximate; bars show event ranges.
+      <a [href]="chart.url">ICS 2026/06</a></span
+    >
+  </div>
+</section>

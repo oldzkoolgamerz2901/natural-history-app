@@ -1,0 +1,136 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+h2 {
+  font: 1.35rem var(--serif);
+  margin: 0.5rem 0 0.7rem;
+}
+.collection-status {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 1.4rem;
+}
+details {
+  border-top: 1px solid var(--line);
+  padding: 1rem 0;
+}
+summary {
+  min-height: 30px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+summary > span {
+  float: right;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.61rem;
+  margin: 1.2rem 0 0.5rem;
+}
+h3 span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.period-link,
+.event-link {
+  display: flex;
+  min-height: 50px;
+  text-decoration: none;
+  padding: 0.5rem 0.65rem;
+  border-left: 2px solid transparent;
+  font-size: 0.8rem;
+}
+.period-link {
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+}
+.period-date {
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-variant-numeric: tabular-nums;
+}
+.active,
+a:hover {
+  background: #e6e8dc;
+  border-left-color: var(--ink);
+}
+.active {
+  font-weight: 600;
+}
+.ready-label {
+  font-size: 0.5rem;
+  letter-spacing: 0.05em;
+  color: #3f6450;
+  margin-left: 0.3rem;
+  border-bottom: 1px solid #92a18a;
+  vertical-align: middle;
+}
+.extinction-directory {
+  margin-top: 0.4rem;
+}
+.extinction-directory ul {
+  padding-top: 0.7rem;
+}
+.event-link {
+  align-items: center;
+  gap: 0.7rem;
+}
+.event-number {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+@media (max-width: 700px) {
+  .catalogue {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0 1.2rem;
+  }
+  .catalogue > p,
+  .catalogue > h2 {
+    grid-column: 1 / -1;
+  }
+  .collection-status {
+    margin-bottom: 1rem;
+  }
+  .extinction-directory {
+    margin-top: 0;
+  }
+  summary {
+    font-size: 0.75rem;
+  }
+  summary > span {
+    display: none;
+  }
+  .event-link {
+    gap: 0.4rem;
+    padding: 0.6rem 0.2rem;
+    font-size: 0.7rem;
+  }
+  .ready-label {
+    display: block;
+    width: fit-content;
+    margin: 0.25rem 0 0;
+  }
+  .period-link {
+    font-size: 0.75rem;
+    padding-left: 0.3rem;
+  }
+}

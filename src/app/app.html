@@ -1,0 +1,69 @@
+<a
+  class="skip-link"
+  href="#exhibit-heading"
+  (click)="$event.preventDefault(); exhibitStart.focus(); exhibitStart.scrollIntoView()"
+  >Skip to exhibit</a
+>
+<header class="site-header">
+  <a class="wordmark" routerLink="/">
+    <svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
+      <path d="M20 3 36 12v17L20 38 4 29V12Z" fill="none" stroke="currentColor" />
+      <path d="M4 20 20 29l16-9M4 12l16 9 16-9M20 21v17" fill="none" stroke="currentColor" />
+    </svg>
+    <span>Natural History<span class="wordmark-subtitle">EXPLORER</span></span>
+  </a>
+  <span class="header-note">A field guide to deep time</span>
+  <span class="edition-tag">THE PHANEROZOIC COLLECTION</span>
+</header>
+<main>
+  <section class="hero" aria-labelledby="page-heading">
+    <div>
+      <p class="eyebrow">AN INTERACTIVE SCIENTIFIC ATLAS</p>
+      <h1 id="page-heading">Life, on a<br /><em>different scale.</em></h1>
+      <p class="hero-description">
+        Journey through 539 million years of life on Earth.<br class="desktop-break" />
+        Discover the worlds that came before ours—and the events that changed everything.
+      </p>
+    </div>
+    <div class="hero-specimen" aria-hidden="true">
+      <svg viewBox="0 0 300 220" fill="none">
+        <g stroke="currentColor" stroke-width="1.1">
+          <ellipse cx="150" cy="110" rx="103" ry="83" transform="rotate(-25 150 110)" />
+          <ellipse cx="150" cy="110" rx="83" ry="67" transform="rotate(-25 150 110)" />
+          <ellipse cx="150" cy="110" rx="62" ry="50" transform="rotate(-25 150 110)" />
+          <ellipse cx="150" cy="110" rx="40" ry="33" transform="rotate(-25 150 110)" />
+          <ellipse cx="150" cy="110" rx="19" ry="16" transform="rotate(-25 150 110)" />
+          <path
+            d="m51 143 194-68M69 168 229 50M97 183 200 32M133 193 162 26M173 188 121 35M210 170 84 57M238 140 57 90M252 106 47 122"
+          />
+          <path d="M25 203h250M150 9v9M150 202v9M31 110h9M260 110h9" stroke-opacity=".45" />
+        </g>
+      </svg>
+      <span>DEEP TIME / ENDURING CHANGE</span>
+    </div>
+  </section>
+  <app-timeline />
+  <div class="exploration-layout">
+    <app-catalogue />
+    <section
+      class="exhibit-space"
+      aria-label="Selected exhibit"
+      #exhibitStart
+      tabindex="-1"
+      id="exhibit-heading"
+    >
+      <router-outlet />
+    </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <span
+    >Natural History Explorer <span aria-hidden="true">/</span> Read the past. See the present
+    differently.</span
+  >
+  <span
+    >Dates:
+    <a href="https://stratigraphy.org/ICSchart/ChronostratChart2026-06.pdf">ICS 2026/06</a> · Ma =
+    million years ago</span
+  >
+</footer>

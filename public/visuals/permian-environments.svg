@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="800" height="480" role="img" aria-labelledby="title desc">
+<title id="title">Contrasting environments on Pangaea</title><desc id="desc">A schematic cross-section shows a dry continental interior on the left and a shallow sea on the right. Not a geographic reconstruction.</desc>
+<defs><pattern id="sediment" width="16" height="12" patternUnits="userSpaceOnUse"><path d="M0 6h8m4 6h4" stroke="#9d775a" stroke-width=".6"/></pattern></defs>
+<path fill="#eeeadd" d="M0 0h400v240H0z"/>
+<path fill="#d8e4df" d="M235 95h165v95H235z"/>
+<g fill="none" stroke="#9cb6ae" stroke-width="1"><path d="M255 104h44m15 0h46m-86 13h51m12 0h39m-93 13h43m15 0h56"/></g>
+<path d="M0 133 27 123 48 130 82 111 112 124 136 107 162 123 191 140 218 143 245 156 282 168 400 168V240H0Z" fill="#c8ac86"/>
+<path d="M0 168c77-9 135-12 199 5s112 14 201 14v53H0Z" fill="#b28c68"/>
+<path d="M0 190c77-9 135-12 199 5s112 14 201 14v31H0Z" fill="url(#sediment)"/>
+<path d="M0 133 27 123 48 130 82 111 112 124 136 107 162 123 191 140 218 143 245 156 282 168 400 168" fill="none" stroke="#725e48" stroke-width="1.5"/>
+<g stroke="#43665d" fill="none" stroke-width="1.5"><path d="M329 167v-27m0 11-8-7m8 0 9-8m-9 3-8-7m8 4 8-7"/><path d="M355 166q-14-15 0-22 14 7 0 22Zm0 0v-22m-5 3 5 19 5-19"/></g>
+<g fill="#334f44" font-family="Georgia,serif" font-size="22"><text x="22" y="44">Dry interior</text><text x="243" y="44">Shallow sea</text></g>
+<g stroke="#6e7c6c" fill="none" stroke-width="1"><path d="M75 55v40m225-40v29"/></g>
+<text x="22" y="220" font-family="sans-serif" font-size="12" letter-spacing="2" fill="#493d2e">PANGAEA / SCHEMATIC ENVIRONMENTS</text>
+</svg>

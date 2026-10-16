@@ -1,0 +1,64 @@
+<nav class="catalogue" aria-labelledby="collection-heading">
+  <p class="eyebrow">02 / CHOOSE AN EXHIBIT</p>
+  <h2 id="collection-heading">Explore the collection</h2>
+  <p class="collection-status">Two exhibits open. The remaining exhibits are in preparation.</p>
+  <details class="period-directory" [open]="periodsInitiallyOpen">
+    <summary>Geological periods <span>12</span></summary>
+    @for (group of groups; track group.id) {
+      <section [attr.aria-labelledby]="'era-' + group.id">
+        <h3 [id]="'era-' + group.id">
+          <span [style.background]="group.color" aria-hidden="true"></span>{{ group.name }}
+        </h3>
+        <ul>
+          @for (period of group.periods; track period.id) {
+            <li>
+              <a
+                [routerLink]="['/period', period.id]"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+                class="period-link"
+              >
+                <span
+                  >{{ period.name }}
+                  @if (ready('period', period.id)) {
+                    <span class="ready-label">OPEN</span>
+                  }
+                </span>
+                <span class="period-date">{{ range(period.start.age, period.end.age) }}</span>
+                @if (!ready('period', period.id)) {
+                  <span class="sr-only">Exhibit in preparation</span>
+                }
+              </a>
+            </li>
+          }
+        </ul>
+      </section>
+    }
+  </details>
+  <details class="extinction-directory" open>
+    <summary>Mass extinctions <span>5</span></summary>
+    <ul>
+      @for (event of events; track event.id) {
+        <li>
+          <a
+            [routerLink]="['/extinction', event.id]"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            class="event-link"
+          >
+            <span class="event-number">{{ event.number }}</span
+            ><span
+              >{{ event.name }}
+              @if (ready('extinction', event.id)) {
+                <span class="ready-label">OPEN</span>
+              }
+            </span>
+            @if (!ready('extinction', event.id)) {
+              <span class="sr-only">Exhibit in preparation</span>
+            }
+          </a>
+        </li>
+      }
+    </ul>
+  </details>
+</nav>

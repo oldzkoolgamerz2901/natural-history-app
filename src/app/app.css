@@ -1,0 +1,168 @@
+:host {
+  display: block;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.skip-link {
+  position: absolute;
+  top: -100px;
+  z-index: 10;
+  padding: 1rem;
+  background: var(--ink);
+  color: white;
+}
+.skip-link:focus {
+  top: 1rem;
+  left: 1rem;
+}
+.site-header {
+  min-height: 100px;
+  margin: 0 5%;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+.wordmark-subtitle {
+  display: block;
+  margin-top: 0.2rem;
+  font:
+    600 0.58rem 'Avenir Next',
+    'Segoe UI',
+    sans-serif;
+  letter-spacing: 0.34em;
+}
+.header-note {
+  font: italic 1rem var(--serif);
+  color: var(--muted);
+}
+.edition-tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line);
+}
+main {
+  padding: 0 5%;
+}
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3.4rem 0 3rem;
+  gap: 2rem;
+}
+h1 {
+  font: clamp(3rem, 5vw, 4.8rem)/1.02 var(--serif);
+  letter-spacing: -0.045em;
+  margin: 1.1rem 0 1.3rem;
+}
+h1 em {
+  font-weight: 400;
+  color: #637d67;
+}
+.hero-description {
+  max-width: 580px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.hero-specimen {
+  width: min(29%, 320px);
+  color: #78907a;
+  text-align: center;
+  margin-right: 3%;
+}
+.hero-specimen svg {
+  display: block;
+  width: 100%;
+}
+.hero-specimen span {
+  color: var(--muted);
+  display: block;
+  font-size: 0.56rem;
+  letter-spacing: 0.18em;
+  margin-top: 0.9rem;
+}
+.exploration-layout {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 2.5rem;
+  padding: 2.8rem 0 4rem;
+}
+.exhibit-space {
+  min-width: 0;
+  scroll-margin-top: 1.5rem;
+}
+.exhibit-space:focus {
+  outline-offset: 7px;
+}
+.site-footer {
+  margin: 0 5%;
+  padding: 1.5rem 0 2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.8;
+}
+.site-footer span span {
+  padding: 0 0.5rem;
+}
+@media (max-width: 1000px) {
+  .edition-tag {
+    display: none;
+  }
+  .exploration-layout {
+    grid-template-columns: 230px minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 700px) {
+  .site-header {
+    min-height: 86px;
+    margin: 0 6%;
+  }
+  .header-note,
+  .hero-specimen,
+  .desktop-break {
+    display: none;
+  }
+  main {
+    padding: 0 6%;
+  }
+  .hero {
+    padding: 2.5rem 0;
+  }
+  h1 {
+    font-size: 3.4rem;
+  }
+  .hero-description {
+    font-size: 0.9rem;
+  }
+  .exploration-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 2rem;
+  }
+  .site-footer {
+    flex-direction: column;
+    margin: 0 6%;
+  }
+}
+@media (max-width: 360px) {
+  h1 {
+    font-size: 3rem;
+  }
+}

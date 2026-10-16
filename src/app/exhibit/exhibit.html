@@ -1,0 +1,123 @@
+<article class="exhibit-card" [class.extinction-card]="kind() === 'extinction'">
+  <div class="exhibit-toolbar">
+    <a routerLink="/" class="back-link">← Collection overview</a
+    ><button type="button" (click)="returnToTimeline()">Back to timeline ↑</button>
+  </div>
+  @if (entity(); as item) {
+    <div class="exhibit-meta">
+      <p class="eyebrow">
+        {{ era()?.name }} /
+        {{ kind() === 'period' ? 'GEOLOGICAL PERIOD' : 'MASS EXTINCTION ' + event()?.number }}
+      </p>
+      <span class="exhibit-status">{{ content() ? 'OPEN EXHIBIT' : 'IN PREPARATION' }}</span>
+    </div>
+    <h2 #heading tabindex="-1">{{ item.name }}</h2>
+    <p class="exhibit-subtitle">{{ content()?.subtitle ?? 'A chapter still taking shape' }}</p>
+    <p class="exhibit-dates">{{ dateLabel() }}</p>
+    @if (content(); as exhibit) {
+      <p class="exhibit-introduction">{{ exhibit.introduction }}</p>
+      <figure class="exhibit-visual">
+        <img [src]="exhibit.visual.src" [alt]="exhibit.visual.alt" width="800" height="480" />
+        <figcaption>
+          {{ exhibit.visual.caption
+          }}<span
+            >{{ exhibit.visual.credit }} ·
+            <a href="https://creativecommons.org/publicdomain/zero/1.0/">License</a></span
+          >
+          <span
+            >Based on:
+            @for (sourceId of exhibit.visual.referenceIds; track sourceId; let last = $last) {
+              <a [href]="reference(sourceId).url">{{
+                sourceId === 'nps-permian'
+                  ? 'National Park Service'
+                  : sourceId === 'burgess'
+                    ? 'Burgess et al. (2017)'
+                    : 'Penn et al. (2018)'
+              }}</a
+              >{{ last ? '' : '; ' }}
+            }
+          </span>
+        </figcaption>
+      </figure>
+      <div class="exhibit-sections">
+        @for (section of exhibit.sections; track section.heading) {
+          <section>
+            <h3>{{ section.heading }}</h3>
+            <p>{{ section.text }}</p>
+            <p class="section-citations">
+              Evidence:
+              @for (sourceId of section.referenceIds; track sourceId; let last = $last) {
+                <a [href]="reference(sourceId).url">{{
+                  sourceId === 'nps-permian' || sourceId === 'nps-land'
+                    ? 'NPS'
+                    : sourceId === 'burgess'
+                      ? 'Burgess et al.'
+                      : sourceId === 'penn'
+                        ? 'Penn et al.'
+                        : 'Payne & Clapham'
+                }}</a
+                >{{ last ? '' : ' · ' }}
+              }
+            </p>
+          </section>
+        }
+      </div>
+      @if (kind() === 'period') {
+        <a class="next-exhibit" routerLink="/extinction/end-permian"
+          ><span class="eyebrow">FOLLOW THE STORY</span
+          ><strong>The end-Permian extinction <span aria-hidden="true">→</span></strong></a
+        >
+      } @else {
+        <a class="next-exhibit" routerLink="/period/permian"
+          ><span class="eyebrow">EXPLORE ITS WORLD</span
+          ><strong>The Permian Period <span aria-hidden="true">→</span></strong></a
+        >
+      }
+    } @else {
+      <div class="preparation-note">
+        <h3>This exhibit is in preparation.</h3>
+        <p>
+          You can locate {{ item.name }} on the timeline, but its full story, visual, and
+          interpretation are not available yet.
+        </p>
+        <a class="text-link" routerLink="/period/permian"
+          >Visit the completed Permian exhibit <span aria-hidden="true">→</span></a
+        ><a class="text-link" routerLink="/extinction/end-permian"
+          >Visit the completed extinction exhibit <span aria-hidden="true">→</span></a
+        >
+      </div>
+    }
+    <details class="sources" [open]="!content()">
+      <summary>Scientific notes &amp; sources</summary>
+      @if (period(); as interval) {
+        <p>
+          <strong>{{ interval.name }} boundaries:</strong> {{ boundary(interval.start) }} to
+          {{ boundary(interval.end) }}. Ma means million years ago; ± shows the uncertainty
+          published in ICS 2026/06. Ages without ± are still estimates. Geological boundaries are
+          defined by reference points in rocks, not by their numerical ages alone.
+        </p>
+      }
+      @if (event(); as extinction) {
+        <p>
+          {{ extinction.timingNote }} Event ranges indicate overview timing; they do not imply
+          continuous extinction at a uniform rate.
+        </p>
+      }
+      <ul>
+        @for (source of sources(); track source.id) {
+          <li>
+            <a [href]="source.url">{{ source.title }}</a
+            ><span>{{ source.detail }}</span>
+          </li>
+        }
+      </ul>
+    </details>
+  } @else {
+    <p class="eyebrow">EXHIBIT NOT FOUND</p>
+    <h2 #heading tabindex="-1">An uncharted path.</h2>
+    <p class="exhibit-introduction">This address does not match an exhibit in the collection.</p>
+    <a class="primary-link" routerLink="/"
+      >Return to the collection <span aria-hidden="true">→</span></a
+    >
+  }
+</article>
