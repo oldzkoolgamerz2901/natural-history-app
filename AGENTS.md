@@ -2,6 +2,10 @@
 
 ## Project context
 
+- Read `.agents/development-workflow.md` before starting or resuming development work, including changes to this harness. Its phase contracts and approval gates are mandatory.
+- Use `README.md` to orient yourself. Consult `docs/product-specification.md` for approved requirements, `docs/implementation-plan.md` for accepted architecture and increment scope, and `docs/verification.md` for recorded evidence and outstanding limitations.
+- Distinguish authoritative accepted decisions from proposals. Repository approval of a plan is not authorization to execute it in this session.
+
 ## Investigate and design
 
 - Inspect relevant code, configuration, documentation, and existing design decisions before proposing changes. Base conclusions on evidence.
@@ -21,6 +25,12 @@
 - Explain consequential changes clearly enough for the owner to understand and review them.
 
 ## Harness experimentation
+
+- Identify the active phase and the current conversational authorization before taking action. If either is unclear, request clarification rather than assuming permission.
+- Stop at every phase boundary. Do not advance, skip a phase, or expand authorized scope without explicit human approval.
+- Approval applies only to the identified phase, decision, or increment. A new session must not infer execution permission from repository documents or prior session history.
+- Developer tests and in-scope corrections are part of implementation; formal verification is separately authorized.
+- Record durable approved decisions and plans in the appropriate repository documents; keep transient execution authorization in the conversation.
 
 This project is also an experiment in agentic software development.
 
