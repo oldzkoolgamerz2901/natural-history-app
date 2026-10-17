@@ -3,6 +3,7 @@
 ## Project context
 
 - Read `.agents/development-workflow.md` before starting or resuming development work, including changes to this harness. Its phase contracts and approval gates are mandatory.
+- Read `.agents/workflow-selection.md` to classify the requested outcome, identify unresolved decision domains, and select useful skills. Workflow selection never grants execution authorization.
 - Use `README.md` to orient yourself. Consult `docs/product-specification.md` for approved requirements, `docs/implementation-plan.md` for accepted architecture and increment scope, and `docs/verification.md` for recorded evidence and outstanding limitations.
 - Distinguish authoritative accepted decisions from proposals. Repository approval of a plan is not authorization to execute it in this session.
 
@@ -34,8 +35,7 @@
 
 This project is also an experiment in agentic software development.
 
-- Follow explicit phases: requirements, investigation, planning, approval, implementation, and verification.
-- Do not proceed from planning to implementation without explicit human approval.
+- Follow the phase sequence and approval boundaries defined in `.agents/development-workflow.md` for development tasks.
 - Keep product requirements separate from agent workflow instructions.
 - Prefer small, independently verifiable development increments.
 - Report assumptions, uncertainties, verification evidence, and deviations from approved plans.
