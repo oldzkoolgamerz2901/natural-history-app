@@ -1,6 +1,6 @@
 ---
 name: grilling
-description: Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.
+description: Interview the owner about consequential unresolved decisions within an authorized phase; use for deliberate stress-testing of plans or designs.
 ---
 
 Interview the user to resolve consequential decisions within the currently authorized phase and agreed decision domain. The repository's development workflow governs phase boundaries; interviewing never authorizes advancing to another phase. Map this as a **design tree**: every decision branches into the decisions that hang off it.
@@ -25,6 +25,6 @@ Word each question so "yes" accepts your recommended answer.
 
 Each round the user answers reshapes the tree: settled decisions push the frontier outward and unblock questions that depended on them. Recompute the frontier and ask the next round. A question whose answer depends on another question still open in this round belongs to a _later_ round, not this one.
 
-Finding _facts_ is your job, never the user's. Use available investigation tools; delegate to a sub-agent only when available and authorized, otherwise investigate directly. When a frontier question needs a fact from the environment (filesystem, tools, etc.), investigate it; don't ask the user for anything you could look up yourself. Don't block on it: a running exploration is an unsettled prerequisite, so only the questions downstream of it wait for the sub-agent to report; ask the rest of the frontier now. The _decisions_ are the user's: put each to them and wait.
+Finding _facts_ is your job, never the user's. Use available investigation tools; delegate to a sub-agent only when available and authorized, otherwise investigate directly. When a frontier question needs a fact from the environment (filesystem, tools, etc.), investigate it; don't ask the user for anything you could look up yourself. If an investigation is still running, defer dependent questions and continue with independent decisions. The _decisions_ are the user's: put each to them and wait.
 
 The session is done when all consequential decisions in the agreed scope are resolved or explicitly identified as outstanding. Summarize decisions, assumptions and open questions; seek the owner's approval of the phase deliverable and stop. Persist decisions only when authorized by the active phase and repository workflow.
