@@ -7,6 +7,19 @@
 - Use `README.md` to orient yourself. Consult `docs/product-specification.md` for approved requirements, `docs/implementation-plan.md` for accepted architecture and increment scope, and `docs/verification.md` for recorded evidence and outstanding limitations.
 - Distinguish authoritative accepted decisions from proposals. Repository approval of a plan is not authorization to execute it in this session.
 
+## Mandatory pre-action checkpoint
+
+Before any tool action that creates, modifies, deletes, or commits application code, tests, configuration, or repository documentation, check all four conditions against the **current conversation**:
+
+1. **Phase:** The active development phase is identified.
+2. **Permission:** The action is allowed in that phase.
+3. **Authorization:** Explicit owner approval exists for this phase and, for implementation, the specific increment. An instruction to achieve an outcome (for example, "remove this caption") is not by itself approval to skip intervening phases.
+4. **Scope:** The target files and intended effects fit the approved scope.
+
+If any condition is missing, **do not perform the write**. State the missing authorization or phase decision and request it. A simple or obvious change is not an exception. Approved phase skips must be explicit and do not automatically authorize implementation. Recheck before the first write after investigation and whenever scope changes.
+
+For operational commands such as starting an existing development server, distinguish non-mutating operation from development work; announce the classification and do not use operational permission to justify code edits. This is an instruction-level checkpoint, not a technical permission barrier.
+
 ## Investigate and design
 
 - Inspect relevant code, configuration, documentation, and existing design decisions before proposing changes. Base conclusions on evidence.
