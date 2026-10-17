@@ -43,6 +43,8 @@ Prefer direct investigation or a concise recommendation when no specialized skil
 
 ## Propose the route; preserve phase gates
 
+At the start of substantive work, briefly declare the selected workstream/request type, active development phase when applicable, and specialized skills being used (or **none**). Include the immediate next action. Keep this to one or two lines. This is an announcement, **not** an additional approval gate: do not wait for confirmation unless the selection is ambiguous, exceeds authorization, or requires an existing phase approval. A declared skill is not proof of invocation; evaluate actual behavior separately.
+
 At the start of substantive work, communicate as needed:
 1. The **intended outcome** and primary workstream/request type, with any important secondary characteristics.
 2. The **known facts** and unresolved decision domains.
