@@ -7,7 +7,7 @@ description: Build a throwaway prototype to answer a design question. Use when t
 
 A prototype is **throwaway code that answers a question**. The question decides the shape. Creating or changing prototype code requires explicit authorization for a bounded experiment; design discussion alone is not permission to write code.
 
-## Pick a branch
+## Pick a prototype type
 
 Identify which question is being answered, using the user's prompt, the surrounding code, or by asking if the user is around:
 
