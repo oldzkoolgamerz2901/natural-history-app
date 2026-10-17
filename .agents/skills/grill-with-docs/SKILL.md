@@ -1,6 +1,6 @@
 ---
 name: grill-with-docs
-description: A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.
+description: Clarify consequential domain decisions using grilling and domain-modeling; propose glossary or architecture records for authorized persistence.
 disable-model-invocation: true
 ---
 
