@@ -37,7 +37,7 @@ If a `GLOSSARY-MAP.md` exists at the root, the repo has multiple contexts. The m
 │       └── docs/adr/
 ```
 
-Create files lazily, only when an approved deliverable needs them and repository changes are authorized. Prefer existing project documents over creating new ADR infrastructure. If no `GLOSSARY.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
+Create files lazily, only when an approved deliverable needs them and repository changes are authorized. Prefer existing project documents over creating new ADR infrastructure. If neither glossary nor ADR directory exists, propose creating one only when the need is demonstrated and the owner authorizes it.
 
 ## During the session
 
