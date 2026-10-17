@@ -5,11 +5,11 @@ description: Build and sharpen a project's domain model. Use when discussing cod
 
 # Domain Modeling
 
-Actively build and sharpen the project's domain model as you design. This is the *active* discipline: challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise. (Merely *reading* `GLOSSARY.md` for vocabulary is not this skill: that's a one-line habit any skill can do. This skill is for when you're changing the model, not just consuming it.)
+Actively build and sharpen the project's domain model as you design. This is the *active* discipline: challenging terms, inventing edge-case scenarios, and proposing precise glossary and decision records once they crystallise; persist only approved changes within the authorized phase. (Merely *reading* `GLOSSARY.md` for vocabulary is not this skill: that's a one-line habit any skill can do. This skill is for when you're changing the model, not just consuming it.)
 
 ## File structure
 
-Most repos have a single context:
+Use the repository's existing glossary and architecture-decision conventions when present. The following layouts are examples, not mandatory structures. Most repos have a single context:
 
 ```
 /
@@ -37,7 +37,7 @@ If a `GLOSSARY-MAP.md` exists at the root, the repo has multiple contexts. The m
 │       └── docs/adr/
 ```
 
-Create files lazily: only when you have something to write. If no `GLOSSARY.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
+Create files lazily, only when an approved deliverable needs them and repository changes are authorized. Prefer existing project documents over creating new ADR infrastructure. If neither glossary nor ADR directory exists, propose creating one only when the need is demonstrated and the owner authorizes it.
 
 ## During the session
 
@@ -57,9 +57,9 @@ When domain relationships are being discussed, stress-test them with specific sc
 
 When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible. Which is right?"
 
-### Update GLOSSARY.md inline
+### Propose and record glossary updates
 
-When a term is resolved, update `GLOSSARY.md` right there. Don't batch these up: capture them as they happen. Use the format in [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md).
+When a term is resolved, propose its canonical definition. Record it in the existing glossary or approved domain document only when the current phase authorizes documentation changes; otherwise include it in the phase deliverable for owner approval. If creating a glossary is justified and authorized, use [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md).
 
 `GLOSSARY.md` should be totally devoid of implementation details. Do not treat `GLOSSARY.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
 
@@ -71,4 +71,4 @@ Only offer to create an ADR when all three are true:
 2. **Surprising without context**: a future reader will wonder "why did they do it this way?"
 3. **The result of a real trade-off**: there were genuine alternatives and you picked one for specific reasons
 
-If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
+If any of the three is missing, skip the ADR. Record accepted architectural decisions in the repository's existing architecture documentation by default. If the owner approves a separate ADR and writing is authorized, use [ADR-FORMAT.md](./ADR-FORMAT.md).

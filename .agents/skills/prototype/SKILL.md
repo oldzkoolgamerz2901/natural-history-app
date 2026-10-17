@@ -5,9 +5,9 @@ description: Build a throwaway prototype to answer a design question. Use when t
 
 # Prototype
 
-A prototype is **throwaway code that answers a question**. The question decides the shape.
+A prototype is **throwaway code that answers a question**. The question decides the shape. Creating or changing prototype code requires explicit authorization for a bounded experiment; design discussion alone is not permission to write code.
 
-## Pick a branch
+## Pick a prototype type
 
 Identify which question is being answered, using the user's prompt, the surrounding code, or by asking if the user is around:
 
@@ -22,5 +22,6 @@ The two branches produce very different artifacts, so getting this wrong wastes 
 2. **Trivial to run.** A UI prototype starts from one command in the project's task runner: `pnpm <name>`, `python <path>`, `bun <path>`, etc. A logic demo is a single HTML file the user double-clicks. Either way, no thinking required to start it.
 3. **No persistence by default.** State lives in memory. Persistence is the thing the prototype is _checking_, not something it should depend on. If the question explicitly involves a database, hit a scratch DB or a local file with a clear "PROTOTYPE, wipe me" name.
 4. **Skip the polish.** No tests, no error handling beyond what makes the prototype _runnable_, no abstractions. The point is to learn something fast.
-5. **Surface the state.** After every action (logic) or on every variant switch (UI), print or render the full relevant state so the user can see what changed.
-6. **Capture it when done.** Fold any validated decision into the real code, then capture the prototype itself as a **primary source**: commit it to a throwaway branch, out of main, and leave a context pointer to that branch on the implementation issue. Capture the answer too (the verdict and the question it settled) in the issue or a commit. The main branch keeps only the validated decision.
+5. **Respect scope and isolation.** Prototype changes stay separate from production behavior. Do not merge, reuse, or implement the prototype in production without a separately approved implementation increment.
+6. **Surface the state.** After every action (logic) or on every variant switch (UI), print or render the full relevant state so the user can see what changed.
+7. **Capture the conclusion.** Report the question, observed behavior, limitations, and proposed decision. If authorized, preserve the experiment on a disposable branch and reference it from existing project documentation. Do not require an issue tracker or automatically fold prototype code into production. Stop for owner review.
